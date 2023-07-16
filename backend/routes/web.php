@@ -19,3 +19,5 @@ Route::get('/', function () {
 
 Route::post('/insert-url', [UrlController::class, 'addUrl']);
 Route::get('/get-url', [UrlController::class, 'getUrl']);
+
+Route::post('/delete-url', [UrlController::class, 'deleteUrl']);

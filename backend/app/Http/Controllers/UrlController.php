@@ -38,4 +38,19 @@ class UrlController extends Controller
     {
         return DB::table('urls')->get();
     }
+    function deleteUrl(Request $request)
+    {
+        try{
+            $id = $request->input('id');
+            $data=DB::table('urls')->where('id',$id)->delete();
+            if ($data > 0) {
+                return response()->json(['message' => 'Data deleted successfully']);
+            } else {
+                return response()->json(['message' => 'Data is not deleted']);
+            }
+        }
+        catch(Exception $e){
+            return response()->json(['message' => 'Error in query']);
+        }
+    }
 }
